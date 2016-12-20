@@ -1,0 +1,13 @@
+{
+  "title": "SOAP component",
+  "description": "Generic SOAP / WebServices integration component",
+  "credentials": {
+    "fields": {
+      "name": {
+        "label": "My API Key",
+        "required": true,
+        "viewClass": "TextFieldView"
+      }
+    }
+  }
+}
