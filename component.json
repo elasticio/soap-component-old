@@ -22,7 +22,7 @@
           "label": "Operation",
           "required": true,
           "model": "getOperations",
-          "prompt": "Chose a Service/Port/Operation"
+          "prompt": "Chose an Operation [Service/Port]"
         }
       },
       "dynamicMetadata": true
