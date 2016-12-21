@@ -3,10 +3,11 @@
   "description": "Generic SOAP / WebServices integration component",
   "credentials": {
     "fields": {
-      "name": {
+      "wsdlURI": {
         "label": "WSDL URI",
         "required": true,
         "viewClass": "TextFieldWithNoteView",
+        "placeholder": "http://www.webservicex.net/CreditCard.asmx?wsdl",
         "note": "Please specify a full URI of your WSDL, it should also be accessible from the internet."
       }
     }
