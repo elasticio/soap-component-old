@@ -22,6 +22,9 @@
     "xml",
     "elasticio-component"
   ],
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
   "dependencies": {
     "bluebird": "^3.4.6",
     "co": "^4.6.0",
@@ -33,7 +36,8 @@
   },
   "devDependencies": {
     "eslint": "^2.1.0",
-    "eslint-config-xo-space": "^0.10.0"
+    "eslint-config-xo-space": "^0.10.0",
+    "jasmine-node": "^1.14.5"
   },
   "eslintConfig": {
     "extends": "xo-space",
