@@ -20,7 +20,7 @@
         "operation": {
           "viewClass": "SelectView",
           "label": "Operation",
-          "required": false,
+          "required": true,
           "model": "getOperations",
           "prompt": "Chose a Service/Port/Operation"
         }
