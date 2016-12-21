@@ -54,6 +54,23 @@ var soap = require('soap');
       expect(JSON.stringify(operation.input)).toEqual('{"CityName":"s:string","CountryName":"s:string"}');
     });
 
+    it('Collect ports', function() {
+      let ops = [];
+      for(let serviceName in descriptor) {
+        console.log('Found service=%s', serviceName);
+        const service = descriptor[serviceName];
+        for(let portName in service) {
+          console.log('Found port=%s', portName);
+          const port = service[portName];
+          for(let opName in port) {
+            console.log('Found operation=%s', opName);
+            ops.push(`${serviceName}/${portName}/${opName}`);
+          }
+        }
+      }
+      expect(ops).toEqual(['GlobalWeather/GlobalWeatherSoap/GetWeather', 'GlobalWeather/GlobalWeatherSoap/GetCitiesByCountry', 'GlobalWeather/GlobalWeatherSoap12/GetWeather', 'GlobalWeather/GlobalWeatherSoap12/GetCitiesByCountry']);
+    });
+
     it('GetWeather operation can be called', function (done) {
       const operation = client.GlobalWeather.GlobalWeatherSoap12.GetWeather;
       expect(operation).toBeTruthy();
