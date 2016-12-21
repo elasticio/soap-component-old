@@ -4,9 +4,10 @@
   "credentials": {
     "fields": {
       "name": {
-        "label": "My API Key",
+        "label": "WSDL URI",
         "required": true,
-        "viewClass": "TextFieldView"
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Please specify a full URI of your WSDL, it should also be accessible from the internet."
       }
     }
   }
