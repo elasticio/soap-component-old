@@ -14,9 +14,6 @@ var soap = require('soap');
         const ports = Object.keys(service);
         expect(ports).toEqual(['SoapPortName', 'SoapPortName2']);
 
-        const port = service[ports[0]];
-        //console.log(port);
-
         done();
       });
     });

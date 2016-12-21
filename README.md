@@ -53,9 +53,12 @@ In the component repository you need to specify OAuth Client credentials as envi
  * ```XXX_KEY``` - your OAuth client key
  * ```XXX_SECRET``` - your OAUth client secret
  
-## Known issues
+## Known issues & limitations
 
-No known issues are there yet.
+There are following limitations & known issues:
+* Only SOAP bindings are supported, HTTP bindings are not supported
+
+See more documentation on [node-soap](https://github.com/vpulim/node-soap).
 
 
 ## License
