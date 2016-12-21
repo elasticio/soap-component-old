@@ -11,5 +11,12 @@
         "note": "Please specify a full URI of your WSDL, it should also be accessible from the internet."
       }
     }
+  },
+  "actions": {
+    "call": {
+      "title": "Call",
+      "main": "./lib/actions/call.js",
+      "dynamicMetadata": true
+    }
   }
 }
