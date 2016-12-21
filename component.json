@@ -16,6 +16,15 @@
     "call": {
       "title": "Call",
       "main": "./lib/actions/call.js",
+      "fields": {
+        "operation": {
+          "viewClass": "SelectView",
+          "label": "Operation",
+          "required": false,
+          "model": "getOperations",
+          "prompt": "Chose a Service/Port/Operation"
+        }
+      },
       "dynamicMetadata": true
     }
   }
