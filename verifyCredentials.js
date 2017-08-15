@@ -3,13 +3,13 @@ const soap = require('soap');
 
 // This function will be called by the platform to verify credentials
 module.exports = function verifyCredentials(credentials, cb) {
-  console.log('Credentials passed for verification %j', credentials);
-  soap.createClient(credentials.wsdlURI, function(err) {
-    console.log(err.stack || err);
-    if (err) {
-      cb(err, {verified: false});
-    } else {
-      cb(null, {verified: true});
-    }
-  });
+    console.log('Credentials passed for verification %j', credentials);
+    soap.createClient(credentials.wsdlURI, function (err) {
+        if (err) {
+            console.log(err.stack || err);
+            cb(err, {verified: false});
+        } else {
+            cb(null, {verified: true});
+        }
+    });
 };
