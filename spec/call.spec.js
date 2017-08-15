@@ -12,5 +12,9 @@ describe('Given complex WSDL we can ', function () {
             assert.equal(Object.keys(result)[0], "service.binding_SOAP12.FindByIdentification");
         });
     });
+});
+
+describe('Given sample WSDL', function() {
+    "use strict";
 
 });
