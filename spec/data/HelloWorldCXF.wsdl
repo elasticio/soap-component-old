@@ -15,7 +15,13 @@
           <maxLength value="30"/>
         </restriction>
       </simpleType>
-
+      <complexType name="ComplexType">
+        <sequence>
+          <element name="givenName" type="string"/>
+          <element name="age" type="integer"/>
+        </sequence>
+      </complexType>
+      <element name="simpleTypeElement" type="xsd:string" default="red" nillable="true"/>
       <element name="sayHi">
         <complexType/>
       </element>
@@ -27,16 +33,18 @@
         </complexType>
       </element>
       <element name="greetMe">
-        <complexType>
+        <xsd:complexType>
           <sequence>
-            <element name="requestType" type="tns:MyStringType"/>
+            <element name="greetName" type="tns:MyStringType" minOccurs="1"/>
+            <element name="greetSurname" type="tns:MyStringType"/>
+            <element name="nested" type="tns:ComplexType"/>
           </sequence>
-        </complexType>
+        </xsd:complexType>
       </element>
       <element name="greetMeResponse">
         <complexType>
           <sequence>
-            <element name="responseType" type="string"/>
+            <element name="greetResponse" type="string"/>
           </sequence>
         </complexType>
       </element>
@@ -157,16 +165,6 @@
   </wsdl:binding>
   <wsdl:service name="SOAPServiceGreeting">
     <wsdl:port binding="tns:Greeter_SOAPBinding" name="SoapPortName">
-      <soap:address
-        location="http://localhost:9000/SoapContext/SoapPort"/>
-    </wsdl:port>
-    <wsdl:port binding="tns:Greeter_SOAPBinding" name="SoapPortName2">
-      <soap:address
-        location="http://localhost:9000/SoapContext/SoapPort"/>
-    </wsdl:port>
-  </wsdl:service>
-  <wsdl:service name="SOAPServiceGreeting2">
-    <wsdl:port binding="tns:Greeter_SOAPBinding" name="SoapPortName3">
       <soap:address
         location="http://localhost:9000/SoapContext/SoapPort"/>
     </wsdl:port>

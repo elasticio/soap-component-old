@@ -1,0 +1,65 @@
+<schema targetNamespace="http://apache.org/hello_world_soap_http/types"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://apache.org/hello_world_soap_http/types"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified">
+  <simpleType name="MyStringType">
+    <restriction base="string">
+      <maxLength value="30"/>
+    </restriction>
+  </simpleType>
+  <complexType name="ComplexType">
+    <sequence>
+      <element name="givenName" type="string"/>
+      <element name="age" type="integer"/>
+    </sequence>
+  </complexType>
+  <element name="simpleTypeElement" type="xsd:string" default="red" nillable="true"/>
+  <element name="sayHi">
+    <complexType/>
+  </element>
+  <element name="sayHiResponse">
+    <complexType>
+      <sequence>
+        <element name="responseType" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="greetMe">
+    <xsd:complexType>
+      <sequence>
+        <element name="greetName" type="tns:MyStringType" minOccurs="1"/>
+        <element name="greetSurname" type="tns:MyStringType"/>
+        <element name="nested" type="tns:ComplexType"/>
+      </sequence>
+    </xsd:complexType>
+  </element>
+  <element name="greetMeResponse">
+    <complexType>
+      <sequence>
+        <element name="greetResponse" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="greetMeOneWay">
+    <complexType>
+      <sequence>
+        <element name="requestType" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="pingMe">
+    <complexType/>
+  </element>
+  <element name="pingMeResponse">
+    <complexType/>
+  </element>
+  <element name="faultDetail">
+    <complexType>
+      <sequence>
+        <element name="minor" type="short"/>
+        <element name="major" type="short"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
