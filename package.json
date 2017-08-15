@@ -28,6 +28,7 @@
   "dependencies": {
     "elasticio-node": "0.0.8",
     "elasticio-sailor-nodejs": "^2.2.0",
+    "process-nextick-args": "^1.0.7",
     "soap": "^0.20.0"
   },
   "devDependencies": {
