@@ -9,6 +9,20 @@
         "viewClass": "TextFieldWithNoteView",
         "placeholder": "http://www.webservicex.net/CreditCard.asmx?wsdl",
         "note": "Please specify a full URI of your WSDL, it should also be accessible from the internet."
+      },
+      "username": {
+        "label":"Username",
+        "required": false,
+        "viewClass": "TextFieldWithNoteView",
+        "placeholder": "jsnow",
+        "note": "Optional. Username for HTTP Basic Authentication"
+      },
+      "password": {
+        "label":"Password",
+        "required": false,
+        "viewClass": "TextFieldWithNoteView",
+        "placeholder": "secret",
+        "note": "Optional. Password for HTTP Basic Authentication"
       }
     }
   },
