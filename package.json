@@ -23,7 +23,7 @@
     "elasticio-component"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "./node_modules/.bin/mocha spec"
   },
   "dependencies": {
     "elasticio-node": "0.0.8",
@@ -31,9 +31,10 @@
     "soap": "^0.20.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^2.1.0",
     "eslint-config-xo-space": "^0.10.0",
-    "jasmine-node": "^1.14.5"
+    "mocha": "^3.5.0"
   },
   "eslintConfig": {
     "extends": "xo-space",

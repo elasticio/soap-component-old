@@ -1,7 +1,7 @@
 var soap = require('soap');
 (function () {
   'use strict';
-  describe('Given', function () {
+  xdescribe('Given', function () {
     let client = null;
     let descriptor = null;
     beforeEach(function (done) {

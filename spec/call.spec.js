@@ -3,7 +3,7 @@ const action = require('../lib/actions/call');
 
 (function () {
   'use strict';
-  describe('Given simple WSDL we can ', function () {
+  xdescribe('Given simple WSDL we can ', function () {
     xit('list operations', function (done) {
       action.getOperations({
         wsdlURI: __dirname + '/data/HelloWorldCXF.wsdl'
@@ -34,7 +34,7 @@ const action = require('../lib/actions/call');
 
   });
 
-  describe('Given complex WSDL we can ', function () {
+  xdescribe('Given complex WSDL we can ', function () {
     xit('list operations', function (done) {
       action.getOperations({
         wsdlURI: __dirname + '/data/sapbyd/QueryCustomerIn.wsdl'
