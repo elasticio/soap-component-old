@@ -14,7 +14,17 @@ describe('Given complex WSDL we can ', function () {
     });
 });
 
-describe('Given sample WSDL', function() {
-    "use strict";
 
+describe('Given sample WSDL', function () {
+    const wsdlURI = "https://eio-soap-sample.herokuapp.com/ws/countries.wsdl";
+    it('should be able to call operation', function () {
+        return action.process({
+            body: {
+                "name": "Spain"
+            }
+        }, {
+            wsdlURI: wsdlURI,
+            operation: 'CountriesPortService.CountriesPortSoap11.getCountry'
+        })
+    });
 });
