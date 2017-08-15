@@ -1,50 +1,16 @@
 const soap = require('soap');
+const assert = require('assert');
+const expect = require('chai').expect;
 const action = require('../lib/actions/call');
 
-(function () {
-  'use strict';
-  xdescribe('Given simple WSDL we can ', function () {
-    xit('list operations', function (done) {
-      action.getOperations({
-        wsdlURI: __dirname + '/data/HelloWorldCXF.wsdl'
-      }, function (err, result) {
-        expect(err).toBeNull();
-        expect(Object.keys(result).length).toEqual(4);
-        expect(Object.keys(result)[0]).toEqual("SOAPServiceGreeting.SoapPortName.sayHi");
-        done();
-      });
+describe('Given complex WSDL we can ', function () {
+    it('list operations', function () {
+        return action.getOperations({
+            wsdlURI: __dirname + '/data/sapbyd/QueryCustomerIn.wsdl'
+        }).then((result) => {
+            assert.equal(Object.keys(result).length, 6);
+            assert.equal(Object.keys(result)[0], "service.binding_SOAP12.FindByIdentification");
+        });
     });
 
-    it('fetch metadata', function (done) {
-      action.getMetaModel({
-        wsdlURI: __dirname + '/data/HelloWorldCXF.wsdl',
-        operation: "SOAPServiceGreeting.SoapPortName.greetMe"
-      }, function (err, result) {
-        expect(err).toBeNull();
-        expect(result).toBeTruthy();
-        console.log(result.input);
-        //console.log(toJSONSchema(result.input));
-        // const input = result.in;
-        // const out = result.out;
-        // expect(input).toBeTruthy();
-        // expect(out).toBeTruthy();
-        done();
-      });
-    });
-
-  });
-
-  xdescribe('Given complex WSDL we can ', function () {
-    xit('list operations', function (done) {
-      action.getOperations({
-        wsdlURI: __dirname + '/data/sapbyd/QueryCustomerIn.wsdl'
-      }, function (err, result) {
-        expect(err).toBeNull();
-        expect(Object.keys(result).length).toEqual(6);
-        expect(Object.keys(result)[0]).toEqual("service.binding_SOAP12.FindByIdentification");
-        done();
-      });
-    });
-
-  });
-})();
+});
