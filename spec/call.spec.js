@@ -25,6 +25,17 @@ describe('Given sample WSDL', function () {
         }, {
             wsdlURI: wsdlURI,
             operation: 'CountriesPortService.CountriesPortSoap11.getCountry'
-        })
+        });
+    });
+
+    it('should be able to call operation with custom XML', function () {
+        return action.process({
+            body: {
+                _xml: "<getCountryRequest xmlns=\"http://spring.io/guides/gs-producing-web-service\"><name>Spain</name></getCountryRequest>"
+            }
+        }, {
+            wsdlURI: wsdlURI,
+            operation: 'CountriesPortService.CountriesPortSoap11.getCountry'
+        });
     });
 });
