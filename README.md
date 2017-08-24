@@ -20,28 +20,62 @@ Only if both ``username`` and ``password`` will be given, then Basic authenticat
 You may also extend this component and add more authentication methods, see 
 [node-soap documentation](https://github.com/vpulim/node-soap#security) on that topic
 
-## Getting Started
+## Trying component
 
-After registration and uploading of your SSH Key you can proceed to deploy it into our system. At this stage we suggest you to:
-* [Create a team](http://docs.elastic.io/docs/teams) to work on your new component. This is not required but will be automatically created using random naming by our system so we suggest you name your team accordingly.
-* [Create a repository](http://docs.elastic.io/docs/component-repositories) where your new component is going to *reside* inside the team that you have just created.
+You may try this component using a [sample SOAP service](https://github.com/elasticio/soap-sample) deployed 
+[on Heroku](https://eio-soap-sample.herokuapp.com/ws/countries.wsdl). WSDL of that service you can find here:
 
-Now as you have a team name and component repository name you can add a new git remote where code shall be pushed to. It is usually displayed on the empty repository page:
-
-```bash
-$ git remote add elasticio your-team@git.elastic.io:your-repository.git
+```
+https://eio-soap-sample.herokuapp.com/ws/countries.wsdl
 ```
 
-Obviously the naming of your team and repository is entirely upto you and if you do not put any corresponding naming our system will auto generate it for you but the naming might not entirely correspond to your project requirements.
-Now we are ready to push it:
+This is how XML Request looks like:
 
-```bash
-$ git push elasticio master
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getCountryRequest>
+         <gs:name>Spain</gs:name>
+      </gs:getCountryRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
-## Authentication
+and response:
 
-Currently you would need to specify URL of your WSDL in your credentials.
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getCountryResponse xmlns:ns2="http://spring.io/guides/gs-producing-web-service">
+         <ns2:country>
+            <ns2:name>Spain</ns2:name>
+            <ns2:population>46704314</ns2:population>
+            <ns2:capital>Madrid</ns2:capital>
+            <ns2:currency>EUR</ns2:currency>
+         </ns2:country>
+      </ns2:getCountryResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+It's easy to try to call it from elastic.io, just place a WSDL in credentials, no authentication is needed, and then send
+a message with following body:
+
+```json
+{
+  "name":"Spain"
+}
+```
+
+following body will also work:
+
+```json
+"body": {
+  "_xml": "<getCountryRequest xmlns=\"http://spring.io/guides/gs-producing-web-service\"><name>Spain</name></getCountryRequest>"
+}
+```
  
 ## Known issues & limitations
 
