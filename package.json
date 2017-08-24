@@ -23,7 +23,9 @@
     "elasticio-component"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha spec"
+    "pretest": "node_modules/.bin/eslint lib spec --ext .json --ext .js --fix",
+    "test": "NODE_ENV=test mocha spec/*",
+    "integration-test": "NODE_ENV=test mocha spec-integration/*"
   },
   "dependencies": {
     "elasticio-node": "0.0.8",
@@ -34,7 +36,11 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.5.0",
-    "request-promise-native": "^1.0.4"
+    "request-promise-native": "^1.0.4",
+    "eslint": "^3.1.1",
+    "eslint-config-xo-space": "^0.15.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-mocha": "^4.8.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
