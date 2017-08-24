@@ -20,7 +20,7 @@ Only if both ``username`` and ``password`` will be given, then Basic authenticat
 You may also extend this component and add more authentication methods, see 
 [node-soap documentation](https://github.com/vpulim/node-soap#security) on that topic
 
-## Trying component
+## Calling a SOAP Web-Service
 
 You may try this component using a [sample SOAP service](https://github.com/elasticio/soap-sample) deployed 
 [on Heroku](https://eio-soap-sample.herokuapp.com/ws/countries.wsdl). WSDL of that service you can find here:
@@ -76,7 +76,9 @@ following body will also work:
   "_xml": "<getCountryRequest xmlns=\"http://spring.io/guides/gs-producing-web-service\"><name>Spain</name></getCountryRequest>"
 }
 ```
- 
+
+more samples you can find in the [integration test](https://github.com/elasticio/soap-component/blob/master/spec-integration/eio-soap-sample.spec.js#L10).
+
 ## Known issues & limitations
 
 There are following limitations & known issues:
