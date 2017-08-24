@@ -4,15 +4,21 @@
 # soap-component
 SOAP component component for the [elastic.io platform](http://www.elastic.io &#34;elastic.io platform&#34;)
 
-If you plan to **deploy it into [elastic.io platform](http://www.elastic.io &#34;elastic.io platform&#34;) you must follow sets of instructions to succseed**. 
+## Authentication
 
-## Before you Begin
+This component currently supports Baisc authentication, so credentials are like this:
 
-Before you can deploy any code into elastic.io **you must be a registered elastic.io platform user**. Please see our home page at [http://www.elastic.io](http://www.elastic.io) to learn how. 
+![image](https://user-images.githubusercontent.com/56208/29668549-ed6ef326-88e0-11e7-9a56-67193056ada8.png)
 
-We&#39;ll use git and SSH public key authentication to upload your component code, therefore you must **[upload your SSH Key](http://docs.elastic.io/docs/ssh-key)**. 
+As you may see you need following data:
+* WSDL URL - this field is mandatory. WSDL is required if you want to call a SOAP service. It should be a readable URL.
+* Username - optional username
+* Password - optional password
 
-&gt; If you fail to upload you SSH Key you will get **permission denied** error during the deployment.
+Only if both ``username`` and ``password`` will be given, then Basic authentication header 
+[will be added](https://github.com/elasticio/soap-component/blob/master/lib/actions/call.js#L32) to the SOAP call. 
+You may also extend this component and add more authentication methods, see 
+[node-soap documentation](https://github.com/vpulim/node-soap#security) on that topic
 
 ## Getting Started
 
