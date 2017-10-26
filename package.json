@@ -29,16 +29,16 @@
   },
   "dependencies": {
     "elasticio-node": "0.0.8",
-    "elasticio-sailor-nodejs": "^2.2.0",
+    "elasticio-sailor-nodejs": "^2.2.1",
     "process-nextick-args": "^1.0.7",
-    "soap": "^0.20.0"
+    "soap": "^0.23.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.5.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
     "request-promise-native": "^1.0.4",
-    "eslint": "^3.1.1",
-    "eslint-config-xo-space": "^0.15.0",
+    "eslint": "^4.9.0",
+    "eslint-config-xo-space": "^0.17.0",
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-mocha": "^4.8.0"
   },
