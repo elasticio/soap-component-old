@@ -1,4 +1,7 @@
 # soap-component [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
+# DEPRECATED please use https://github.com/openintegrationhub/soap-component instead
+
 > Generic SOAP / WebServices integration component
 
 # soap-component
