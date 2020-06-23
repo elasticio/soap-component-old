@@ -31,8 +31,9 @@ describe('Given', () => {
         },
       };
 
-      client = new SoapClient({}, cfg);
+      client = new SoapClient(self, cfg);
       await client.init();
+      await action.init.call(self, cfg);
     });
 
     it('get services', async () => {
@@ -81,10 +82,9 @@ describe('Given', () => {
             targetNSAlias: 'tns',
             targetNamespace: 'http://onlineavl2.navmanwireless.com/0907/',
           },
-        }
+        },
       };
 
-      client.setService('ServiceSoap12');
       const result = await action.process.call(self, message, cfgCopy);
       expect(result[0].DoLoginResult.OperationStatus).to.equal(true);
     });
