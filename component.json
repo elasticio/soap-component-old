@@ -46,6 +46,16 @@
         }
       },
       "metadata" : {
+        "in": {
+          "type": "object",
+          "required": true,
+          "properties": {
+            "request": {
+              "type": "object",
+              "required": true
+            }
+          }
+        },
         "out" : {}
       }
     }
