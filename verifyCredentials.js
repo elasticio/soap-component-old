@@ -1,9 +1,9 @@
-'use strict';
-const soap = require('soap');
+const { SoapClient } = require('./lib/client');
 
-// This function will be called by the platform to verify credentials
-module.exports = function verifyCredentials(credentials) {
-    console.log('Credentials passed for verification %j', credentials);
-    const wsdlURI = credentials.wsdlURI;
-    return soap.createClientAsync(wsdlURI);
+module.exports = async function verifyCredentials(credentials) {
+  this.logger.info('Verifying credentials...');
+  this.logger.trace('Credentials passed for verification %j', credentials);
+  const client = new SoapClient(this, credentials);
+  await client.init();
+  this.logger.info('credentials verified!');
 };

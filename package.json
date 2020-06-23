@@ -1,6 +1,6 @@
 {
   "name": "soap-component",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generic SOAP / WebServices integration component",
   "homepage": "https://www.elastic.io",
   "author": {
@@ -8,10 +8,9 @@
     "email": "info@elastic.io",
     "url": "https://elastic.io"
   },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "keywords": [
     "elasticio",
     "integration",
@@ -24,32 +23,25 @@
   ],
   "scripts": {
     "pretest": "node_modules/.bin/eslint lib spec --ext .json --ext .js --fix",
-    "test": "NODE_ENV=test mocha spec/*",
-    "integration-test": "NODE_ENV=test mocha spec-integration/*"
+    "integration-test": "mocha spec-integration/*"
   },
   "dependencies": {
-    "elasticio-node": "0.0.8",
-    "elasticio-sailor-nodejs": "^2.2.1",
-    "process-nextick-args": "^1.0.7",
-    "soap": "^0.23.0"
+    "elasticio-node": "0.0.9",
+    "elasticio-sailor-nodejs": "2.6.7",
+    "process-nextick-args": "1.0.7",
+    "request": "2.88.0",
+    "soap": "0.31.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "request-promise-native": "^1.0.4",
-    "eslint": "^4.9.0",
-    "eslint-config-xo-space": "^0.17.0",
-    "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-mocha": "^4.8.0"
-  },
-  "eslintConfig": {
-    "extends": "xo-space",
-    "env": {
-      "mocha": true
-    }
-  },
-  "engines": {
-    "node": "8.1.3"
+    "axios": "0.19.2",
+    "chai": "4.1.2",
+    "dotenv": "8.2.0",
+    "mocha": "5.0.5",
+    "eslint": "6.4.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-json": "1.2.0",
+    "eslint-plugin-mocha": "4.8.0"
   },
   "repository": "elasticio/soap-component",
   "license": "Apache-2.0"

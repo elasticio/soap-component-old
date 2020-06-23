@@ -10,20 +10,16 @@
         "placeholder": "http://www.webservicex.net/CreditCard.asmx?wsdl",
         "note": "Please specify a full URI of your WSDL, it should also be accessible from the internet."
       },
-      "username": {
-        "label":"Username",
+      "auth": {
         "required": false,
-        "viewClass": "TextFieldWithNoteView",
-        "placeholder": "jsnow",
-        "note": "Optional. Username for HTTP Basic Authentication"
-      },
-      "password": {
-        "label":"Password",
-        "required": false,
-        "viewClass": "TextFieldWithNoteView",
-        "placeholder": "secret",
-        "note": "Optional. Password for HTTP Basic Authentication"
+        "viewClass": "HTTPAuthView"
       }
+    },
+    "oauth2" : {
+      "client_id" : "{{clientId}}",
+      "client_secret" : "{{clientSecret}}",
+      "auth_uri" : "{{authUri}}",
+      "token_uri" : "{{tokenUri}}"
     }
   },
   "actions": {
@@ -31,12 +27,22 @@
       "title": "Call",
       "main": "./lib/actions/call.js",
       "fields": {
+        "service": {
+          "viewClass": "SelectView",
+          "label": "Service",
+          "required": true,
+          "model": "getServices",
+          "prompt": "Chose an Service",
+          "order": 2
+        },
         "operation": {
           "viewClass": "SelectView",
           "label": "Operation",
           "required": true,
           "model": "getOperations",
-          "prompt": "Chose an Operation [Service/Port]"
+          "prompt": "Chose an Operation",
+          "require": ["service"],
+          "order": 1
         }
       },
       "metadata" : {
