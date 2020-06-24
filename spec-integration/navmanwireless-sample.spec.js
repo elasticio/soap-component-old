@@ -33,7 +33,7 @@ describe('Given', () => {
 
       client = new SoapClient(self, cfg);
       await client.init();
-      await action.init.call(self, cfg);
+      await action.init(cfg);
     });
 
     it('get services', async () => {

@@ -26,6 +26,7 @@
     "integration-test": "mocha spec-integration/*"
   },
   "dependencies": {
+    "@elastic.io/component-logger": "0.0.1",
     "elasticio-node": "0.0.9",
     "elasticio-sailor-nodejs": "2.6.10",
     "process-nextick-args": "1.0.7",
@@ -33,7 +34,6 @@
     "soap": "0.31.0"
   },
   "devDependencies": {
-    "@elastic.io/component-logger": "0.0.1",
     "axios": "0.19.2",
     "chai": "4.1.2",
     "dotenv": "8.2.0",
