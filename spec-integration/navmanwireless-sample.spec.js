@@ -85,7 +85,8 @@ describe('Given', () => {
         },
       };
 
-      const result = await action.process.call(self, message, cfgCopy);
+      await action.process.call(self, message, cfgCopy);
+      const result = self.emit.getCall(0).args[1].body;
       expect(result[0].DoLoginResult.OperationStatus).to.equal(true);
     });
 
