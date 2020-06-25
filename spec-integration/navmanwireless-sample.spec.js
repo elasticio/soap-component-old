@@ -52,8 +52,8 @@ describe('Given', () => {
     it('get service DoLogin action metadata', async () => {
       client.setService('ServiceSoap12');
       const result = client.getOperationMetadata('DoLogin');
-      expect(result.input).not.to.equal(undefined);
-      expect(result.output).not.to.equal(undefined);
+      expect(result.in).not.to.equal(undefined);
+      expect(result.out).not.to.equal(undefined);
     });
 
     it('call service DoLogin action', async () => {
@@ -65,8 +65,6 @@ describe('Given', () => {
           request: {
             Session: {
               // SessionId: '1',
-              targetNSAlias: 'tns',
-              targetNamespace: 'http://onlineavl2.navmanwireless.com/0907/',
             },
             UserCredential: {
               UserName: cfg.auth.basic.username,
@@ -74,13 +72,9 @@ describe('Given', () => {
               // ApplicationID: 'guid|s:string|pattern',
               // ClientID: 'guid|s:string|pattern',
               // ClientVersion: 's:string',
-              targetNSAlias: 'tns',
-              targetNamespace: 'http://onlineavl2.navmanwireless.com/0907/',
             },
             // "IPAddress": "s:string",
             // "ClockVerificationUtc": "s:dateTime",
-            targetNSAlias: 'tns',
-            targetNamespace: 'http://onlineavl2.navmanwireless.com/0907/',
           },
         },
       };
@@ -93,8 +87,8 @@ describe('Given', () => {
     it('get service GetDrivers action metadata', async () => {
       client.setService('ServiceSoap12');
       const result = client.getOperationMetadata('GetDrivers');
-      expect(result.input).not.to.equal(undefined);
-      expect(result.output).not.to.equal(undefined);
+      expect(result.in).not.to.equal(undefined);
+      expect(result.out).not.to.equal(undefined);
     });
   });
 });

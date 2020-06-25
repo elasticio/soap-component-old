@@ -51,8 +51,8 @@ describe('Cdyne Online', () => {
     it('get service Add action metadata', async () => {
       client.setService('PhoneVerifySoap12');
       const result = client.getOperationMetadata('CheckPhoneNumber');
-      expect(result.input).not.to.equal(undefined);
-      expect(result.output).not.to.equal(undefined);
+      expect(result.in).not.to.equal(undefined);
+      expect(result.out).not.to.equal(undefined);
     });
 
     it('call service Add action', async () => {

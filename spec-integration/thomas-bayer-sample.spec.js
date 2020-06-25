@@ -51,8 +51,8 @@ describe('Thomas-Bayer Online', () => {
     it('get service Add action metadata', async () => {
       client.setService('BLZServiceSOAP12port_http');
       const result = client.getOperationMetadata('getBank');
-      expect(result.input).not.to.equal(undefined);
-      expect(result.output).not.to.equal(undefined);
+      expect(result.in).not.to.equal(undefined);
+      expect(result.out).not.to.equal(undefined);
     });
 
     it('call service Add action', async () => {
@@ -60,7 +60,7 @@ describe('Thomas-Bayer Online', () => {
       cfgCopy.service = 'BLZServiceSOAP12port_http';
       cfgCopy.operation = 'getBank';
       const message = {
-        body: { blz: 67270003 },
+        body: { blz: '67270003' },
       };
 
       await action.process.call(self, message, cfgCopy);
