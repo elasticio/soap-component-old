@@ -3,7 +3,6 @@ const sinon = require('sinon');
 const logger = require('@elastic.io/component-logger')();
 require('dotenv').config();
 
-const { SoapClient } = require('../lib/client');
 const action = require('../lib/actions/call');
 
 const { expect } = chai;
@@ -11,7 +10,6 @@ const { expect } = chai;
 describe('Dne Online', () => {
   describe('WSDL is accessible', () => {
     let cfg;
-    let client;
     let self;
 
     before(async () => {
@@ -27,8 +25,6 @@ describe('Dne Online', () => {
         },
       };
 
-      client = new SoapClient(self, cfg);
-      await client.init();
       await action.init(cfg);
     });
 
@@ -49,8 +45,10 @@ describe('Dne Online', () => {
     });
 
     it('get service Add action metadata', async () => {
-      client.setService('CalculatorSoap12');
-      const result = client.getOperationMetadata('Add');
+      const cfgCopy = JSON.parse(JSON.stringify(cfg));
+      cfgCopy.service = 'CalculatorSoap12';
+      cfgCopy.operation = 'Add';
+      const result = await action.getMetaModel.call(self, cfgCopy);
       expect(result.in).not.to.equal(undefined);
       expect(result.out).not.to.equal(undefined);
     });
